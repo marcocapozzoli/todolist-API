@@ -18,3 +18,14 @@ class ToDoListTestCase(APITestCase):
     
     def api_authentication(self):
         self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token.key)
+    
+    def test_todolist_list_authorized(self):
+        """Verifica requisição GET quando usuário está antenticado"""
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
+    def test_todolist_list_un_authorized(self):
+        """Verifica requisição GET quando usuário não está authenticado"""
+        self.client.force_authenticate(user=None)
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
