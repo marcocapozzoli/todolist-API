@@ -12,3 +12,10 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         users = CustomUser.objects.all()
         return users
+
+class ToDoListViewSet(viewsets.ModelViewSet):
+    serializer_class = ToDoListSerializer
+
+    def get_queryset(self):
+        todolist = ToDoList.objects.all()
+        return todolist
