@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import ToDoList
+
+
+class ToDoListAdmin(admin.ModelAdmin):
+    list_display = ['id', 'task', 'date', 'user', 'check']
+    list_display_links = ['id', 'task']
+
+admin.site.register(ToDoList, ToDoListAdmin)
