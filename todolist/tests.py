@@ -35,4 +35,9 @@ class ToDoListTestCase(APITestCase):
         data = {'task':'Programar', 'date':'2021-08-30','check':'Y'}
         response = self.client.post(self.list_url, data=data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data['user']['username'], self.user.username) 
+        self.assertEqual(response.data['user']['username'], self.user.username)
+        
+    def test_todolist_detail(self):
+        """Verifica requisição GET/{id} quando usuário está authenticado"""
+        response = self.client.get(reverse('todolist-detail', kwargs={'pk':1}))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
