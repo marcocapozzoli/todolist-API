@@ -34,4 +34,13 @@ class ToDoListViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             response = {'error': 'Você não tem permissão para editar essa tarefa.'}
+            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+        
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.user == request.user:
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            response = {'error': 'Você não tem permissão para excluir essa tarefa.'}
             return Response(response, status=status.HTTP_400_BAD_REQUEST) 
