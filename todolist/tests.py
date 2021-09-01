@@ -41,3 +41,17 @@ class ToDoListTestCase(APITestCase):
         """Verifica requisição GET/{id} quando usuário está authenticado"""
         response = self.client.get(reverse('todolist-detail', kwargs={'pk':1}))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_todolist_update(self):
+        """Verifica se o usuário logado consegue atualizar uma tarefa que ele criou"""
+        data = {'task':'Programar update', 'date':'2021-08-30','check':'Y'}
+        response = self.client.put(reverse('todolist-detail', kwargs={'pk':1}), data=data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
+    def test_todolist_update_random_user(self):
+        """Verifica se algum usuário não consegue atualizar uma tarefa que ele não criou"""
+        random_user = CustomUser.objects.create(username='Evoe.cc',email='evoecc@gmail.com',password='pythonDRF')
+        self.client.force_authenticate(user=random_user)
+        data = {'task':'Programar update', 'date':'2021-08-30','check':'Y'}
+        response = self.client.put(reverse('todolist-detail', kwargs={'pk':1}), data=data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
