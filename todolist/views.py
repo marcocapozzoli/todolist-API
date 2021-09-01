@@ -1,6 +1,7 @@
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, filters
 from rest_framework.response import Response
 from users.models import CustomUser
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import ToDoList
 from .serializers import CustomUserSerializer, ToDoListSerializer
@@ -15,6 +16,8 @@ class CustomUserViewSet(viewsets.ModelViewSet):
 
 class ToDoListViewSet(viewsets.ModelViewSet):
     serializer_class = ToDoListSerializer
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    ordering_fields = ['date']
 
     def get_queryset(self):
         todolist = ToDoList.objects.all()
