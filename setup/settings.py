@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     # 3rd apps
     'rest_framework',
     'rest_framework.authtoken',
-    'crispy_forms',
     
     # Local apps
     'todolist',
