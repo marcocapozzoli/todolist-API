@@ -55,3 +55,15 @@ class ToDoListTestCase(APITestCase):
         data = {'task':'Programar update', 'date':'2021-08-30','check':'Y'}
         response = self.client.put(reverse('todolist-detail', kwargs={'pk':1}), data=data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        
+    def test_todolist_delete(self):
+        """Verifica se o usuário logado consegue deletar uma tarefa que ele criou"""
+        response = self.client.delete(reverse('todolist-detail', kwargs={'pk':1}))
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        
+    def test_todolist_delete_random_user(self):
+        """Verifica se algum usuário não consegue deletar uma tarefa que ele não criou"""
+        random_user = CustomUser.objects.create(username='Evoe.cc',email='evoecc@gmail.com',password='pythonDRF')
+        self.client.force_authenticate(user=random_user)
+        response = self.client.delete(reverse('todolist-detail', kwargs={'pk':1}))
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
