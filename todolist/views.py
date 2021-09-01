@@ -19,3 +19,7 @@ class ToDoListViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         todolist = ToDoList.objects.all()
         return todolist
+    
+    def perform_create(self, serializer):
+        user = self.request.user
+        serializer.save(user=user)
