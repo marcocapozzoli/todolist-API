@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework import status, viewsets
+from rest_framework.response import Response
+from users.models import CustomUser
 
-# Create your views here.
+from .models import ToDoList
+from .serializers import CustomUserSerializer, ToDoListSerializer
+
+
+class CustomUserViewSet(viewsets.ModelViewSet):
+    serializer_class = CustomUserSerializer
+    
+    def get_queryset(self):
+        users = CustomUser.objects.all()
+        return users
