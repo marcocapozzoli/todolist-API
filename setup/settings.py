@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # 3rd apps
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_yasg',
     
     # Local apps
     'todolist',
