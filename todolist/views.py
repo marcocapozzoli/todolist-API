@@ -18,7 +18,7 @@ class ToDoListViewSet(viewsets.ModelViewSet):
     serializer_class = ToDoListSerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['date']
-    search_fields = ['user', 'check']
+    search_fields = ['user__username']
 
     def get_queryset(self):
         todolist = ToDoList.objects.all()

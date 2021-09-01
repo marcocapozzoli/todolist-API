@@ -10,7 +10,7 @@ class ToDoList(models.Model):
     )
     
     task = models.CharField('Task', max_length=300)
-    date = models.DateField('Deadline')
+    date = models.DateTimeField('Deadline')
     check = models.CharField('Done', max_length=1, choices=CHECK, default='N', blank=False, null=False)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     
