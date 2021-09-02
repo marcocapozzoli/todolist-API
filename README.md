@@ -2,6 +2,12 @@
 
 ## 💻 Project
 
+This project is a simple API for logging task.
+It has a token authentication system.
+Only authenticated users can use the API.
+The user must be able to register new tasks, and edit or delete only their own.
+It has a registration screen (optional, if you don't want to use the admin or shell to create a user)
+
 Below Screenshot from the browsable API:
 ![image](/readme_img/main_screen.png?raw=true "Main_Screen")
 
@@ -59,7 +65,7 @@ You can create a user via the `/api/signup` route. Or simply create a superuser 
 After user created, you need to request a token, making a post request to the address `/api-token` which will return Json with the token, if the user is authenticated correctly
 
 Example with Postman
-![image](/readme_img/postman_POST_api-token.png?raw=true "Postman Post_api-token")
+![image](/readme_img/postman_post_api-token.png?raw=true "postman_post_api-token")
 
 You can also make this request using python's requests library.
 ```
@@ -75,25 +81,27 @@ out: {"token":"ae63b18092790b29cc7a58eb573be05ad5954b2d"}
 
 With the token you can normally use the API, remembering to pass the token in the header with the Authorization key and value 'Token <token>' For more details on how to use the token you can check the [DRF documentation](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication)
 
-Example with Postman:
-![image](/readme_img/Postman_GET_api-buy.png?raw=true "Postman Get_api/buy")
-
 - If you want to use the navigable API (which is much more interesting) you can authenticate by entering the username and password created earlier
-![image](/readme_img/drfweb_noauthentication.png?raw=true "drfweb noauthentication")
-![image](/readme_img/drfweb_login_screen.png?raw=true "drfweb login_screen")
+![image](/readme_img/drf_api_login_screen.png?raw=true "drf_api_login_screen")
+![image](/readme_img/drf_login_screen.png?raw=true "drf_login_screen")
 
 **3. In operation**
   
-Example of creating a purchase (with Postman):
-![image](/readme_img/Postman_Post_api-buy.png?raw=true "Postman Post api/buy")
+Example of creating a task (with Postman):
+![image](/readme_img/postman_post_api-todolist.png?raw=true "postman_post_api-todolist")
 
-If the data is correct they will be saved and a request to the external API, which will generate the cashback. *Reply from the post request made by the retailer's customer will be the reply from the external API.*
-```Json
-```
+Update a task (with navigable API)
+![image](/readme_img/drf_put_api-todolist_id.png?raw=true "drf_put_api-todolist_id")
+
+If the user tries to update or delete a task that he did not create himself, it will not succeed and will display an error message.
+![image](/readme_img/drf_put_api-todolist_id_response_error.png?raw=true "drf_put_api-todolist_response_error_id")
+![image](/readme_img/drf_delete_api-todolist_id_response_error.png?raw=true "drf_delete_api-todolist_response_error_id")
  
 
 ## Endpoints and Features
 
+- Register:
+  - `(POST)/signup`
 - Get token for API access
   - `(POST)/api/token`
 - List all task
