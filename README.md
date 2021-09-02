@@ -2,11 +2,11 @@
 
 ## 💻 Project
 
-This project is a simple API for logging task.
-It has a token authentication system.
-Only authenticated users can use the API.
-The user must be able to register new tasks, and edit or delete only their own.
-It has a registration screen (optional, if you don't want to use the admin or shell to create a user)
+This project is a simple API for register a task.
+- It has a token authentication system.
+- Only authenticated users can use the API.
+- The user must be able to register new tasks, and edit or delete only their own.
+- It has a registration screen (optional, if you don't want to use the admin or shell to create a user)
 
 Below Screenshot from the browsable API:
 ![image](/readme_img/main_screen.png?raw=true "Main_Screen")
@@ -81,7 +81,7 @@ out: {"token":"ae63b18092790b29cc7a58eb573be05ad5954b2d"}
 
 With the token you can normally use the API, remembering to pass the token in the header with the Authorization key and value 'Token <token>' For more details on how to use the token you can check the [DRF documentation](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication)
 
-- If you want to use the navigable API (which is much more interesting) you can authenticate by entering the username and password created earlier
+- If you want to use the browsable API (which is much more interesting) you can authenticate by entering the username and password created earlier
 ![image](/readme_img/drf_api_login_screen.png?raw=true "drf_api_login_screen")
 ![image](/readme_img/drf_login_screen.png?raw=true "drf_login_screen")
 
@@ -90,7 +90,7 @@ With the token you can normally use the API, remembering to pass the token in th
 Example of creating a task (with Postman):
 ![image](/readme_img/postman_post_api-todolist.png?raw=true "postman_post_api-todolist")
 
-Update a task (with navigable API)
+Update a task (with browsable API)
 ![image](/readme_img/drf_put_api_todolist_id.png?raw=true "drf_put_api-todolist_id")
 
 If the user tries to update or delete a task that he did not create himself, it will not succeed and will display an error message.
