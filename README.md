@@ -123,6 +123,14 @@ The API has ordering by delivery date and searching by username. To access this 
 
 👀 For more information about endpoints, see the documentation on endpoint `(GET)/api/doc/`
 
+## 🗄️ Deploy
+Deploy was made using Heroku. For mor details see the [documentation](https://devcenter.heroku.com/categories/python-support)
+
+Link to App:
+https://todolist-api-evoe.herokuapp.com/api/
+
+**OBS:** To login you can use **username: evoe** and **password: todolistevoe**
+  
 ## 📎 Versioning
 
 1.0.0.0
