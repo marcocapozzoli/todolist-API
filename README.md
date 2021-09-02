@@ -5,7 +5,7 @@
 This project is a simple API for register a task.
 - It has a token authentication system.
 - Only authenticated users can use the API.
-- The user must be able to register new tasks, and edit or delete only their own.
+- The user must be able to register new tasks, and edit or delete only his own.
 - It has a registration screen (optional, if you don't want to use the admin or shell to create a user)
 
 Below Screenshot from the browsable API:
@@ -20,7 +20,7 @@ This project was developed with the following tecnologies:
 
 The reason for choosing Django and Django Rest Framework was the practicality and productivity for the creation of REST API's, besides particularly liking these tools. 🥰
 
-The database used for this application was `sqlite3`. Because it is already installed and configured with Django, it makes development a lot easier.
+The database used for this application was `sqlite3`. Because it is already installed and configured with Django, it makes the development a lot easier.
 
 ## ℹ️ How to use
 
