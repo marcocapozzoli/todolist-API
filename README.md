@@ -88,6 +88,7 @@ With the token you can normally use the API, remembering to pass the token in th
 **3. In operation**
   
 Example of creating a task (with Postman):
+  
 ![image](/readme_img/postman_post_api-todolist.png?raw=true "postman_post_api-todolist")
 
 Update a task (with browsable API)
