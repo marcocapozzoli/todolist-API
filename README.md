@@ -91,11 +91,11 @@ Example of creating a task (with Postman):
 ![image](/readme_img/postman_post_api-todolist.png?raw=true "postman_post_api-todolist")
 
 Update a task (with navigable API)
-![image](/readme_img/drf_put_api-todolist_id.png?raw=true "drf_put_api-todolist_id")
+![image](/readme_img/drf_put_api_todolist_id.png?raw=true "drf_put_api-todolist_id")
 
 If the user tries to update or delete a task that he did not create himself, it will not succeed and will display an error message.
-![image](/readme_img/drf_put_api-todolist_id_response_error.png?raw=true "drf_put_api-todolist_response_error_id")
-![image](/readme_img/drf_delete_api-todolist_id_response_error.png?raw=true "drf_delete_api-todolist_response_error_id")
+![image](/readme_img/drf_put_api_todolist_id_response_error.png?raw=true "drf_put_api-todolist_response_error_id")
+![image](/readme_img/drf_delete_api_todolist_id_response_error.png?raw=true "drf_delete_api-todolist_response_error_id")
 
 The API has ordering by delivery date and searching by username. To access this resource, pass this information by parameter.
 ```
