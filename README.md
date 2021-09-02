@@ -52,17 +52,17 @@ Run the application
 ```
 **2. Registration and Authorization**
 
-The application has authentication by token and session, so it is necessary to create a user and then access the api with the token or using login and password
+The application has authentication by token and session, so it's necessary to create a user and then access the API with the token or using login and password (browsable API)
 
 - Creating user
 
-You can create a user via the `/api/signup` route. Or simply create a superuser directly in the terminal using the command:
+You can create a user via the `/api/signup` route. Or if you prefer, create a superuser using the terminal, with the command.
 ```
 (venv) $ ./manage.py createsuperuser
 ```
 - Accessing the application using the token
 
-After user created, you need to request a token, making a post request to the address `/api-token` which will return Json with the token, if the user is authenticated correctly
+After user created, you need to request a token. Send a post request to the address /api-token which will return a Json response with the token, if the user is authenticated correctly.
 
 Example with Postman
 ![image](/readme_img/postman_post_api-token.png?raw=true "postman_post_api-token")
